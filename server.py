@@ -7,3 +7,11 @@ port= 12345 #Port to listen on
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 socket.bind((host, port))
 server.listen()
+
+clients=[]
+nicknames=[] #nickname for each client
+
+#broadcast function to send message to all the clients
+def broadcast(message):
+    for client in clients:
+        client.send(message)
